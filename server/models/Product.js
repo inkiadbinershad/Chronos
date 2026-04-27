@@ -6,7 +6,7 @@ const productSchema = new mongoose.Schema({
   shortDesc: { type: String },
   price: { type: Number, required: true },
   image: { type: String, required: true },
-  category: { type: String, enum: ['military', 'contemporary', 'ultra-luxury'], required: true },
+  category: { type: String, enum: ['military', 'contemporary', 'ultra-luxury', 'dress', 'diver', 'stealth', 'sport', 'grand-complication'], required: true },
   brand: { type: String, default: 'CHRONOS' },
   movement: { type: String },
   caseMaterial: { type: String },

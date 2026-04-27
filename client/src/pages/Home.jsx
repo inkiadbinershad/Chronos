@@ -8,9 +8,9 @@ const API = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
 // Fallback products for when API is unavailable
 const fallbackProducts = [
-  { _id: '1', name: 'Field Commander', shortDesc: 'Military Heritage · Steel Case · Brown Leather', price: 4200, image: '/images/field-commander.jpg', category: 'military', rating: 4.9, reviewCount: 186, inStock: true, stockCount: 24 },
-  { _id: '2', name: 'Filwd Chronograph', shortDesc: 'Contemporary Edge · Rose Gold · Sapphire Crystal', price: 6800, image: '/images/filwd.jpg', category: 'contemporary', rating: 4.8, reviewCount: 94, inStock: true, stockCount: 12 },
-  { _id: '3', name: 'Tourbillon Noir', shortDesc: 'Ultra Luxury · Skeletonized · Flying Tourbillon', price: 12500, image: '/images/tourbillon-noir.jpg', category: 'ultra-luxury', rating: 5.0, reviewCount: 43, inStock: true, stockCount: 7 },
+  { _id: '1', name: 'Field Commander', shortDesc: 'Military Heritage · Steel Case · Brown Leather', price: 4200, image: '/images/watch-1.jpg', category: 'military', rating: 4.9, reviewCount: 186, inStock: true, stockCount: 24 },
+  { _id: '2', name: 'Filwd Chronograph', shortDesc: 'Contemporary Edge · Rose Gold · Sapphire Crystal', price: 6800, image: '/images/watch-2.jpg', category: 'contemporary', rating: 4.8, reviewCount: 94, inStock: true, stockCount: 12 },
+  { _id: '3', name: 'Tourbillon Noir', shortDesc: 'Ultra Luxury · Skeletonized · Flying Tourbillon', price: 12500, image: '/images/watch-3.jpg', category: 'ultra-luxury', rating: 5.0, reviewCount: 43, inStock: true, stockCount: 7 },
 ];
 
 function StatCounter({ value, label, suffix = '', prefix = '' }) {
@@ -77,9 +77,9 @@ export default function Home() {
   }, []);
 
   const heroImages = [
-    '/images/tourbillon-noir.jpg',
-    '/images/field-commander.jpg',
-    '/images/filwd.jpg',
+    '/images/watch-3.jpg',
+    '/images/watch-1.jpg',
+    '/images/watch-2.jpg',
   ];
 
   const heroData = [

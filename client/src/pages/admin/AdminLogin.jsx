@@ -3,12 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 
 export default function AdminLogin() {
-  const { login } = useAuth();
-  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,24 +26,25 @@ export default function AdminLogin() {
 
   return (
     <div className="min-h-screen bg-chr-black flex items-center justify-center px-4">
-      <div className="w-full max-w-md border border-chr-gold/20 rounded-sm bg-card-gradient p-8 relative overflow-hidden">
-        {/* Decorative top line */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-gold-gradient opacity-60" />
-
-        {/* Logo */}
-        <div className="flex items-center justify-center gap-3 mb-8">
-          <div className="w-6 h-6 rounded-full border border-chr-gold/40 flex items-center justify-center flex-shrink-0">
-            <div className="w-2 h-2 rounded-full bg-gold-gradient" />
-          </div>
-          <span className="font-playfair text-sm font-bold tracking-[0.2em] text-chr-gold-pale">CHRONOS</span>
+      <div className="w-full max-w-md border border-chr-gold/20 rounded-sm bg-card-gradient p-8">
+        <div className="text-center mb-8">
+          <h1 className="font-playfair text-3xl text-chr-gold tracking-wider">CHRONOS</h1>
+          <p className="font-raleway text-chr-muted text-xs tracking-widest uppercase mt-1">Admin Portal</p>
         </div>
 
-        <h1 className="font-playfair text-2xl text-chr-cream text-center mb-1">Admin Access</h1>
-        <p className="font-raleway text-chr-muted text-xs text-center tracking-wide mb-8">Secure portal for administrators</p>
+        <h2 className="font-playfair text-2xl text-chr-cream text-center mb-6">Sign In</h2>
 
-        <form onSubmit={handleSubmit} className="space-y-5">
+        {error && (
+          <div className="mb-4 p-3 border border-red-500/30 bg-red-500/10 text-red-400 text-sm rounded-sm">
+            {error}
+          </div>
+        )}
+
+        <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block font-raleway text-chr-muted text-xs tracking-wide mb-2">Email</label>
+            <label className="block font-raleway text-chr-muted text-xs uppercase tracking-wider mb-2">
+              Email
+            </label>
             <input
               type="email"
               value={email}
@@ -55,7 +56,9 @@ export default function AdminLogin() {
           </div>
 
           <div>
-            <label className="block font-raleway text-chr-muted text-xs tracking-wide mb-2">Password</label>
+            <label className="block font-raleway text-chr-muted text-xs uppercase tracking-wider mb-2">
+              Password
+            </label>
             <input
               type="password"
               value={password}
@@ -69,28 +72,20 @@ export default function AdminLogin() {
           <button
             type="submit"
             disabled={loading}
-            className="btn-gold w-full flex items-center justify-center gap-2"
+            className="btn-gold w-full py-3.5 text-xs uppercase tracking-widest disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? (
-              <div className="w-4 h-4 rounded-full border-2 border-chr-cream/20 border-t-chr-cream animate-spin" />
+              <span className="inline-block w-4 h-4 rounded-full border-2 border-chr-black/20 border-t-chr-black animate-spin" />
             ) : (
               'Sign In'
             )}
           </button>
         </form>
 
-        {error && (
-          <p className="mt-4 text-center text-red-400 font-raleway text-xs">{error}</p>
-        )}
-
-        <p className="mt-6 text-center font-raleway text-chr-muted/60 text-[10px] tracking-wide">
+        <p className="mt-6 text-center font-raleway text-chr-muted/60 text-xs">
           Dev hint: admin@chronos.com / admin123
         </p>
-
-        {/* Decorative bottom line */}
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gold-gradient opacity-30" />
       </div>
     </div>
   );
 }
-
